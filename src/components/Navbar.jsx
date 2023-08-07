@@ -24,13 +24,7 @@ function Navbar() {
         <>    
          <Link to="/add-post">
             <button>Add Post</button>
-        </Link> 
-
-        <Link to="/post-details/${user._id}">
-                <button>Post Details</button>
-        </Link>
-
-
+        </Link>    
           <button onClick={logOutUser}>Logout</button>
           <span>{user && user.name}</span>
         </>

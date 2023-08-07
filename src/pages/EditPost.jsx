@@ -13,18 +13,7 @@ const EditPost = () => {
 
     const { postId } = useParams()
 
-    // const post = posts?.find((post) => post._id === postId)
-
     const [updatedCaption, setUpdatedCaption] = useState("")
-
-    // const [post, editPost] = useState({
-
-    //     owner: user?._id,
-    //     caption:""
-
-    // })
-
-
 
     const navigate = useNavigate()
 
@@ -56,8 +45,6 @@ const EditPost = () => {
   return (
     <div id="edit-post">
         <h1>Edit Post</h1>
-
-
 
         <form onSubmit={handleSubmit}>
 

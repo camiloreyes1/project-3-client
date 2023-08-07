@@ -1,6 +1,10 @@
 const HomePage = () => {
   return (
-    <div>HomePage</div>
+  <div>
+      
+      <h1>Welcome to Lens!</h1>
+      
+  </div>
   )
 }
 

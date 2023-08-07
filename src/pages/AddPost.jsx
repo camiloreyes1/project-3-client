@@ -44,7 +44,7 @@ const AddPost = () => {
         <form onSubmit={handleSubmit}>
 
         <label>Image</label>
-        <input type="text" name="image"  value={post.image} onChange={handleTextChange}/>
+        <input className="img" type="text" name="image"  value={post.image} onChange={handleTextChange}/>
 
         <label>Caption</label>
         <input type="text" name="caption"  value={post.caption} onChange={handleTextChange} />
