@@ -12,11 +12,6 @@ const PostDetails = () => {
     const { postId } = useParams()
     const { posts, setPosts } = useContext(PostContext)   
 
-    // const isOwner = () => {
-    //     return user._id === thisPost.owner._id
-    // } 
-
-
     const deletePost = () => {
 
         console.log("postId", postId)

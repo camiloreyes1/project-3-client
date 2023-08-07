@@ -1,22 +1,28 @@
-import  { useState } from 'react';
+import  { useContext } from 'react';
+import { PostContext } from '../context/posts.context';
 import { get } from '../services/authService';
 
-const LikeButton = ({postId}) => {
+import Button from 'react-bootstrap/Button';
 
-  const [likes, setLikes] = useState(0);
-  const [isClicked, setIsClicked] = useState(false);    
+
+
+const LikeButton = ({postId, post, index}) => {
+
+    const {posts, setPosts} = useContext(PostContext)
+
+
+//   const [isClicked, setIsClicked] = useState(false);    
 
   const handleClick = (e) => {
     e.preventDefault()
 
-    get(`/posts/addLike/${postId}`)
-        if(isClicked) {
-            setLikes(likes - 1)
-        } else{
-            setLikes(likes + 1)
-        }
-        setIsClicked(!isClicked)
+    get(`/posts/like-button/${postId}`)
+
         .then((likedPost) => {
+            let newPosts = [...posts]
+            newPosts[index] = likedPost.data
+            console.log("New posts", index, newPosts)
+            setPosts(newPosts)
             console.log("Liked Post", likedPost)
         })
         .catch((err) => {
@@ -27,9 +33,9 @@ const LikeButton = ({postId}) => {
 
 
   return (
-    <button className={ `like-button ${isClicked && 'liked'}` } onClick={ handleClick }>
-      <span className="likes-counter">{ `Likes  ${likes}` }</span>
-    </button>
+    <Button onClick={ handleClick }>
+      <span className="likes-counter">{ `Likes  ${post.likes.length}` }</span>
+    </Button>
   );
 };
 

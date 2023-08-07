@@ -27,7 +27,7 @@ const PostProvider = ({ children }) => {
 
 
     return (
-        <PostContext.Provider value={{posts, getPosts }}>
+        <PostContext.Provider value={{posts, getPosts, setPosts }}>
             {children}
         </PostContext.Provider>
     )
