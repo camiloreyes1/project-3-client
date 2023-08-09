@@ -1,16 +1,20 @@
 import { useEffect, useState, useContext } from "react"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { PostContext } from "../context/posts.context"
 import { get, postRoute } from "../services/authService"
 import { Link } from "react-router-dom"
 import { AuthContext } from "../context/auth.context"
+import Button from 'react-bootstrap/Button';
+import  Card from "react-bootstrap/Card";
+
 
 
 const PostDetails = () => {
 
     const [thisPost, setThisPost] = useState(null)
     const { postId } = useParams()
-    const { posts, setPosts } = useContext(PostContext)   
+    const { posts, setPosts } = useContext(PostContext) 
+    const navigate = useNavigate() 
 
     const deletePost = () => {
 
@@ -52,26 +56,28 @@ const PostDetails = () => {
 
         <h1>Post Details</h1>
 
+        <Card style={{ width: '45rem' }}>
+
+        <Card.Img variant="top" />
+
          {thisPost &&
             <img src={thisPost.image} alt="foundImage" />       
         }
 
-         <br></br>
+        <Card.Body>
 
         <Link to={`/edit/${postId}`}>
-        <button>Edit Post</button>
+        <Button>Edit Post</Button>
         </Link>
 
-        <button onClick={deletePost}>Delete Post</button>
-    
+        <Button variant="danger" onClick={deletePost}>Delete Post</Button>
 
+        </Card.Body>
+        </Card>
       </div>
 
-    
   )
 }
 
-
 export default PostDetails
 
-// /edit/:postId

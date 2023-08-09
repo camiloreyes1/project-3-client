@@ -1,8 +1,12 @@
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
 import { AuthContext } from "../context/auth.context";
 import { postRoute } from "../services/authService";
+import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+import Row from 'react-bootstrap/Row';
 
 
 
@@ -24,18 +28,18 @@ function SignupPage() {
   const navigate = useNavigate();
 
   const handleTextChange = (e) => {
-    setUser((prev) => ({...prev, [e.target.name]: e.target.value}))
+    setUser((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
-  
+
   const handleSignupSubmit = (e) => {
     e.preventDefault();
 
     postRoute('/auth/signup', user)
       .then((response) => {
-        console.log('JWT token', response.data.authToken );
+        console.log('JWT token', response.data.authToken);
         storeToken(response.data.authToken)
         authenticateUser()
-        navigate('/');     
+        navigate('/');
       })
       .catch((error) => {
         console.log("Error", error)
@@ -44,49 +48,71 @@ function SignupPage() {
       })
   };
 
-  
+
   return (
     <div className="SignupPage">
       <h1>Sign Up</h1>
-     
-      <label>Full Name:</label>
-        <input 
-          type="text"
-          name="fullName"
-          value={user.fullName}
-          onChange={handleTextChange}
-        />
+    <form onSubmit={handleSignupSubmit}>
+      <Row className="mb-3">
+        <Form.Group as={Col} md="3" controlId="validationCustom01">
+          <Form.Label>Full name</Form.Label>
+          <Form.Control
+            type="text"
+            name="fullName"
+            value={user.fullName}
+            onChange={handleTextChange}
+          >
+          </Form.Control>
+          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+        </Form.Group>
 
-      <label>Username:</label>
-        <input 
-          type="text"
-          name="username"
-          value={user.username}
-          onChange={handleTextChange}
-        />
+        <Form.Group as={Col} md="3" controlId="validationCustom02">
+          <Form.Label>Username</Form.Label>
+          <InputGroup hasValidation>
+            <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
+            <Form.Control
+              type="text"
+              name="username"
+              value={user.username}
+              onChange={handleTextChange}
+            />
+          </InputGroup>
+        </Form.Group>
+      </Row>
 
-      <form onSubmit={handleSignupSubmit}>
-        <label>Email:</label>
-        <input 
-          type="email"
-          name="email"
-          value={user.email}
-          onChange={handleTextChange}
-        />
+      <Row className="mb-3">
+        <Form.Group as={Col} md="4" controlId="validationCustom01">
+          <Form.Label>Email</Form.Label>
+          <Form.Control
+           type="email"
+           name="email"
+           value={user.email}
+           onChange={handleTextChange}
+          >
+          </Form.Control>
+          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+        </Form.Group>
 
-        <label>Password:</label>
-        <input 
-          type="password"
-          name="password"
-          value={user.password}
-          onChange={handleTextChange}
-        />
-       
-
-      <button type="submit">Sign Up</button>
+        <Form.Group as={Col} md="3" controlId="validationCustom01">
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+         type="password"
+         name="password"
+         value={user.password}
+         onChange={handleTextChange}
+          >
+          </Form.Control>
+          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+        </Form.Group>
+      </Row>
+        <Button type="submit">Sign Up</Button>
       </form>
 
-      { errorMessage && <p className="error-message">{errorMessage}</p> }
+        
+        <br></br>
+        <br></br>
+  
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <p>Already have account?</p>
       <Link to="/login"> Login</Link>
@@ -95,3 +121,4 @@ function SignupPage() {
 }
 
 export default SignupPage;
+

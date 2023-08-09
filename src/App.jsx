@@ -1,7 +1,7 @@
 import "./App.css";
 import { Routes, Route, Outlet, Navigate } from "react-router-dom";
 
-import Navbar from "./components/Navbar";
+import Navbar from "./components/NavbarComponent";
 import AllPosts from "./pages/AllPosts";
 import EditPost from "./pages/EditPost";
 import AddPost from "./pages/AddPost";
@@ -9,6 +9,8 @@ import HomePage from "./pages/HomePage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import PostDetails from "./pages/PostDetails";
+import NavbarComponent from "./components/NavbarComponent";
+import Profile from "./pages/Profile";
 
 
 function App() {
@@ -28,7 +30,7 @@ function App() {
   return (
     <div className="App">
       
-      <Navbar />
+      <NavbarComponent />
  
       <Routes>      
         <Route path="/" element={ <HomePage /> } />
@@ -38,7 +40,8 @@ function App() {
 
           <Route path="/add-post" element={<AddPost/>} />
           <Route path="/edit/:postId" element={<EditPost />} />  
-          <Route path="/post-details/:postId" element={<PostDetails/>} />  
+          <Route path="/post-details/:postId" element={<PostDetails/>} /> 
+          <Route path="/profile/" element={<Profile/>} /> 
 
         </Route>
 

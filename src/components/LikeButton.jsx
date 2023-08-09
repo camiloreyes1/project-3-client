@@ -11,8 +11,6 @@ const LikeButton = ({postId, post, index}) => {
     const {posts, setPosts} = useContext(PostContext)
 
 
-//   const [isClicked, setIsClicked] = useState(false);    
-
   const handleClick = (e) => {
     e.preventDefault()
 
@@ -33,8 +31,9 @@ const LikeButton = ({postId, post, index}) => {
 
 
   return (
-    <Button onClick={ handleClick }>
-      <span className="likes-counter">{ `Likes  ${post.likes.length}` }</span>
+    
+    <Button variant="primary" onClick={ handleClick }>
+      <span className="likes-counter">{ `Like 🚀` }</span>
     </Button>
   );
 };

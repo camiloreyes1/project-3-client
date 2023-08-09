@@ -30,6 +30,8 @@ function AuthProvider({ children }) {
 
         const user = response.data;
       
+        console.log("User", user)
+        
         setIsLoggedIn(true);
         setIsLoading(false);
         setUser(user);        

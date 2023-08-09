@@ -1,9 +1,13 @@
 import { useState, useContext } from "react";
 import { AuthContext } from "../context/auth.context";
-
 import { Link, useNavigate } from "react-router-dom";
-
 import { postRoute } from "../services/authService";
+
+import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
+import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
+
 
 function LoginPage() {
 
@@ -42,28 +46,43 @@ function LoginPage() {
     <div className="LoginPage">
       <h1>Login</h1>
 
-      <form onSubmit={handleLoginSubmit}>
-        <label>Email:</label>
-        <input 
-          type="email"
-          name="email"
-          value={email}
-          onChange={handleEmail}
-        />
 
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
 
-        <button type="submit">Login</button>
-      </form>
+      <Row className="mb-3">
+          <form onSubmit={handleLoginSubmit}>
+        <Form.Group as={Col} md="3" controlId="validationCustom01">
+
+          <Form.Label>Email</Form.Label>
+          <Form.Control
+          onSubmit={handleLoginSubmit}
+            type="email"
+            name="email"
+            value={email}
+            onChange={handleEmail}
+          >
+          </Form.Control>
+          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+        </Form.Group>
+
+        <Form.Group as={Col} md="3" controlId="validationCustom02">
+          <Form.Label>Password</Form.Label>
+            <Form.Control
+            onSubmit={handleLoginSubmit}
+             type="password"
+             name="password"
+             value={password}
+             onChange={handlePassword}
+            />
+        </Form.Group>
+        <br></br>
+        <Button type="submit">Login</Button>
+          </form>
+      </Row>
+
       { errorMessage && <p className="error-message">{errorMessage}</p> }
 
       <p>Don't have an account yet?</p>
+
       <Link to="/signup"> Sign Up</Link>
     </div>
   )

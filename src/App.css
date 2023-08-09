@@ -1,0 +1,24 @@
+@media only screen and (min-width: 480px) {
+    /* styles for devices with a minimum screen width of 480px */
+    }
+    
+    @media only screen and (max-width: 480px) {
+    /* styles for devices with a maximum screen width of 480px */
+    }
+
+    .container {
+        display: center;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 100px 200px;
+        }
+
+        body {
+            background-color: #dadada;
+            color: #1f2023;
+          }
+          @media (prefers-color-scheme: dark) {
+            body {
+              background-color: #1f2023;
+              color: #dadada;
+            }
+          }
