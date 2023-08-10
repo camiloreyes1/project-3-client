@@ -50,7 +50,10 @@ function SignupPage() {
 
 
   return (
-    <div class="m-3" className="SignupPage">
+    <div className="SignupPage">
+      <div class="m-3">
+
+
       <h1>Sign Up</h1>
       <br></br>
     <form onSubmit={handleSignupSubmit}>
@@ -117,6 +120,7 @@ function SignupPage() {
 
       <p>Already have account?</p>
       <Link to="/login"> Login</Link>
+      </div>
     </div>
   )
 }

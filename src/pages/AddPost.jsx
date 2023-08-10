@@ -11,16 +11,16 @@ const AddPost = () => {
 
     const { user } = useContext(AuthContext)
 
-    const[post, setPost] = useState({
+    const [post, setPost] = useState({
 
 
-        image:"",
-        caption:""
-        
+        image: "",
+        caption: ""
+
     })
 
     const [buttonDisabled, setButtonDisabled] = useState(false)
-    
+
     const navigate = useNavigate()
 
     const handleSubmit = (e) => {
@@ -37,50 +37,52 @@ const AddPost = () => {
     }
 
     const handleTextChange = (e) => {
-        setPost((prev) => ({...prev, [e.target.name]: e.target.value}))
-      }
+        setPost((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+    }
 
     const handleFileChange = (e) => {
 
         setButtonDisabled(true)
         fileChange(e)
-        .then((response) => {
+            .then((response) => {
 
-            setButtonDisabled(false)
-            setPost((prev) => ({...prev, [e.target.name]: response.data.image}))
-        })
-        .catch((err) => {
-            console.log(err)
-            setButtonDisabled(false)
+                setButtonDisabled(false)
+                setPost((prev) => ({ ...prev, [e.target.name]: response.data.image }))
+            })
+            .catch((err) => {
+                console.log(err)
+                setButtonDisabled(false)
 
-        })
-
-
-
-
-
-
+            })
 
     }
 
-    
-  return (
-    <div id="add-post">
-        <h1>Add Post</h1>
 
-        <form onSubmit={handleSubmit}>
+    return (
+        <div class="m-3" id="add-post">
+            <h1>Add Post</h1>
 
-        <label>Image</label>
-        <input className="img" type="file" name="image" onChange={handleFileChange}/>
 
-        <label>Caption</label>
-        <input type="text" name="caption"  value={post.caption} onChange={handleTextChange} />
+            <form onSubmit={handleSubmit}>
 
-        <button type="submit" disabled={buttonDisabled}>Add Post</button>
+                <div class="mb-3"> 
 
-        </form>
-    </div>
-  )
+                <label>Image</label>
+                <input className="img" type="file" name="image" onChange={handleFileChange} />
+
+                </div>
+
+
+                <label>Caption</label>
+                <input type="text" name="caption" value={post.caption} onChange={handleTextChange} />
+
+                <Button type="submit" disabled={buttonDisabled}>Add Post</Button>
+
+            </form>
+
+        </div>
+    )
 }
 
 export default AddPost
+

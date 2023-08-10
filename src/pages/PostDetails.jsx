@@ -52,11 +52,11 @@ const PostDetails = () => {
 
   
   return (
-    <div>
+    <div class="m-3">
 
         <h1>Post Details</h1>
 
-        <Card style={{ width: '45rem' }}>
+        <Card style={{ width: '22.3rem' }}>
 
         <Card.Img variant="top" />
 
@@ -69,7 +69,7 @@ const PostDetails = () => {
         <Link to={`/edit/${postId}`}>
         <Button>Edit Post</Button>
         </Link>
-
+        &nbsp;&nbsp;
         <Button variant="danger" onClick={deletePost}>Delete Post</Button>
 
         </Card.Body>

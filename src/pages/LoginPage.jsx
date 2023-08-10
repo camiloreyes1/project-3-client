@@ -43,7 +43,9 @@ function LoginPage() {
   };
 
   return (
-    <div class="m-3" className="LoginPage">
+    <div className="LoginPage">
+      <div class="m-3">
+
       <h1>Login</h1>
       <br></br>
       <Row className="mb-3">
@@ -82,6 +84,7 @@ function LoginPage() {
       <p>Don't have an account yet?</p>
 
       <Link to="/signup"> Sign Up</Link>
+      </div>
     </div>
   )
 }

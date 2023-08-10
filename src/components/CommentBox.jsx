@@ -58,7 +58,8 @@ const CommentBox = ({ author, post, index }) => {
 
           <Form onSubmit={handleSubmit}>
 
-            <Form.Label  >Comment</Form.Label>
+            <br></br>
+            <Form.Label>Comment</Form.Label>
 
             <Form.Control
               type="text"
@@ -70,6 +71,7 @@ const CommentBox = ({ author, post, index }) => {
             <div class="mt-2">
 
             <Button variant="success" type="submit">Post</Button>
+            <br></br>
 
             </div>
           </Form>
@@ -80,15 +82,18 @@ const CommentBox = ({ author, post, index }) => {
               <>
 
                 {
+
                   post.comments.map((comment) => {
                     return (
-                      <p>{comment.comment}</p>
+                    
+                      
+                      <p>{comment.author.username}: {comment.comment}</p>
                     )
-                  })
+                  }).reverse() 
                 }
 
               </>
-
+              
               : <p>No comments yet</p>
           }
 
