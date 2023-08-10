@@ -21,7 +21,7 @@ const AllPosts = () => {
                         <   SecondPostCard key={post._id} post={post} index={index} />
                     )
                     
-                })
+                }).reverse()
             }
         </div>
     )
