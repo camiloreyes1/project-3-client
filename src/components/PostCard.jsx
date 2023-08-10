@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import LikeButton from "../components/LikeButton"
-import CommentBox from "../components/CommentBOX"
+import CommentBox from "../components/CommentBox"
 import Card from 'react-bootstrap/Card';
 import { Container } from "react-bootstrap";
 

@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom"
 import LikeButton from "../components/LikeButton"
-import CommentBox from "../components/CommentBOX"
+import CommentBox from "../components/CommentBox"
 import Card from 'react-bootstrap/Card';
 
 const SecondPostCard = ({ post, index }) => {
 
     return (
         <div class="m-3">
-            
+
             <Card style={{ width: '22.3rem' }}>
 
                 <Card.Img variant="top" src={post.image} fluid />
