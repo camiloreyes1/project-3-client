@@ -50,8 +50,9 @@ function SignupPage() {
 
 
   return (
-    <div className="SignupPage">
+    <div class="m-3" className="SignupPage">
       <h1>Sign Up</h1>
+      <br></br>
     <form onSubmit={handleSignupSubmit}>
       <Row className="mb-3">
         <Form.Group as={Col} md="3" controlId="validationCustom01">

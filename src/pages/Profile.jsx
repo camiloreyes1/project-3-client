@@ -33,7 +33,7 @@ const Profile = () => {
 
     return (
         <div>
-            <h1>Your Posts</h1>
+            <h1 class='m-3'>My Posts</h1>
             {
                 thesePosts.map((post, i) => {
                     return (

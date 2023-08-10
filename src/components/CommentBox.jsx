@@ -8,24 +8,24 @@ import Collapse from 'react-bootstrap/Collapse';
 
 
 
-const CommentBox = ({ author, post, index}) => {
+const CommentBox = ({ author, post, index }) => {
 
   const [open, setOpen] = useState(false);
 
   const { posts, setPosts } = useContext(PostContext)
 
   const [comment, setComment] = useState("")
-  
-  
+
+
   const handleChange = (e) => {
     console.log("Comment ===>", comment)
     setComment(e.target.value)
   }
-  
-  
+
+
   const handleSubmit = (e) => {
     e.preventDefault()
-      postRoute(`/posts/add-comment/${post._id}`, {comment})
+    postRoute(`/posts/add-comment/${post._id}`, { comment })
       .then((response) => {
         console.log("Comment", response.data)
         let newPosts = [...posts]
@@ -38,25 +38,13 @@ const CommentBox = ({ author, post, index}) => {
         console.log(err)
       })
   }
-  
-  
+
+
   return (
 
     <div id="comment">
-      <Form onSubmit={handleSubmit}>
 
-       <Form.Label  >Comment</Form.Label>
-          <Form.Control 
-            type="text"
-            name="comment"
-            value={comment}
-            onChange={handleChange}
-          >
-          </Form.Control>
-      <Button variant="success" type="submit">Post</Button>
-      </Form>
-
-      <Button
+      <Button 
         onClick={() => setOpen(!open)}
         aria-controls="example-collapse-text"
         aria-expanded={open}
@@ -66,30 +54,49 @@ const CommentBox = ({ author, post, index}) => {
 
       <Collapse in={open}>
         <div id="example-collapse-text">
-        
-        {
-        post.comments.length ? 
 
-        <>
+
+          <Form onSubmit={handleSubmit}>
+
+            <Form.Label  >Comment</Form.Label>
+
+            <Form.Control
+              type="text"
+              name="comment"
+              value={comment}
+              onChange={handleChange}
+            >
+            </Form.Control>
+            <div class="mt-2">
+
+            <Button variant="success" type="submit">Post</Button>
+
+            </div>
+          </Form>
 
           {
-            post.comments.map((comment) => {
-              return (
-                <p>{comment.comment}</p>
-              )
-            })
-          }
-        
-        </>
+            post.comments.length ?
 
-        : <p>No comments yet</p>
-      }
+              <>
+
+                {
+                  post.comments.map((comment) => {
+                    return (
+                      <p>{comment.comment}</p>
+                    )
+                  })
+                }
+
+              </>
+
+              : <p>No comments yet</p>
+          }
 
         </div>
       </Collapse>
 
-     
-</div>
+
+    </div>
   )
 }
 
