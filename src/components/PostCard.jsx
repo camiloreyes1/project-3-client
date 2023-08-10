@@ -32,7 +32,7 @@ const PostCard = ({ post, index }) => {
                         </Card.Title>
                     </Card.Body>
                 </Link>
-                <h5>  &nbsp;&nbsp; {post.likes.length} Likes  </h5>
+                <h5 class="m-3">  &nbsp;&nbsp; {post.likes.length} Likes  </h5>
                 <Card.Text>
                 </Card.Text>
                 <Card.Img />
