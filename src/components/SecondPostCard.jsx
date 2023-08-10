@@ -14,18 +14,20 @@ const SecondPostCard = ({ post, index }) => {
 
                 <Card.Title>
                     <br></br>
-                    <p>&nbsp;&nbsp;&nbsp;{post.owner.username}:&nbsp; {post.caption}</p>
+                    <div class="m-3">
+
+                    <p>{post.owner.username}:&nbsp; {post.caption}</p>
+
+                    </div>
                 </Card.Title>
 
                 <Card.Body>
-                    <div class='m-3'>
 
-                        <h6> {post.likes.length} Likes </h6>
-                    </div>
+                    <h6> {post.likes.length} Likes </h6>
 
-                    <div class="mb-2">
-                        <LikeButton postId={post._id} post={post} index={index} />
-                    </div>
+                <div class="mb-2">
+                    <LikeButton postId={post._id} post={post} index={index} />
+                </div>
                     <CommentBox post={post} index={index} />
                 </Card.Body>
                 <Card.Text>
