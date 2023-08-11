@@ -6,7 +6,7 @@ import Card from 'react-bootstrap/Card';
 const SecondPostCard = ({ post, index }) => {
 
     return (
-        <div class="m-3">
+        <div class="shadow p-3 m-3">
 
             <Card style={{ width: '22.3rem' }}>
 
