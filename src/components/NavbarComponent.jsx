@@ -15,7 +15,7 @@ function NavbarComponent() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="primary" data-bs-theme="dark">
       <Container fluid>
-        <Navbar.Brand  href="/" ><p class="fw-bold m-3">
+        <Navbar.Brand  href="/" ><p class="fw-bold ml-2">
           Pixels 
         </p>
           </Navbar.Brand>
