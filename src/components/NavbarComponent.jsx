@@ -13,7 +13,8 @@ function NavbarComponent() {
   }
 
   return (
-    <Navbar collapseOnSelect expand="lg" bg="primary" data-bs-theme="dark">
+    <Navbar collapseOnSelect expand="lg" bg=".bg-primary.bg-gradient
+    " data-bs-theme="dark">
       <Container fluid>
         <Navbar.Brand  href="/" ><p class="fw-bold m-2">
           Pixels 
