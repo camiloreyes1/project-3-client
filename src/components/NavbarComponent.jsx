@@ -15,7 +15,9 @@ function NavbarComponent() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="primary" data-bs-theme="dark">
       <Container fluid>
-        <Navbar.Brand href="/" >Pixels </Navbar.Brand>
+        <Navbar.Brand class="fw-bold" href="/" >
+          Pixels 
+          </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
