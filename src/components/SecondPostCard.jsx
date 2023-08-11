@@ -14,7 +14,7 @@ const SecondPostCard = ({ post, index }) => {
 
                 <Card.Title>
                     <br></br>
-                    <div class="m-2">
+                    <div class="m-3">
 
                     <p>{post.owner.username}:&nbsp; {post.caption}</p>
 
