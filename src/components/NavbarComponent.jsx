@@ -13,7 +13,7 @@ function NavbarComponent() {
   }
 
   return (
-    <Navbar collapseOnSelect expand="lg" bg="primary" data-bs-theme="dark">
+    <Navbar collapseOnSelect expand="lg" bg="primary.bg-gradient" data-bs-theme="dark">
       <Container fluid>
         <Navbar.Brand href="/" >Pixels </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
